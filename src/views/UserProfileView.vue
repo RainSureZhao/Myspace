@@ -1,6 +1,9 @@
 <template>
     <ContentBase>
-      用户动态
+      <div class="row">
+        <div class="col-3">用户信息</div>
+        <div class="col-9">帖子列表</div>
+      </div> 
     </ContentBase>
   </template>
   
