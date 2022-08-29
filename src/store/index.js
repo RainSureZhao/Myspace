@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-
+import ModuleUser from './User';
 export default createStore({
   state: {
   },
@@ -7,8 +7,9 @@ export default createStore({
   },
   mutations: {
   },
-  actions: {
+  actions: { 
   },
   modules: {
+    user: ModuleUser,
   }
 })
