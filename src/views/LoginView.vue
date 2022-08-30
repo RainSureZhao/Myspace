@@ -15,7 +15,7 @@
 					<input type="checkbox" class="form-check-input" id="exampleCheck1">
 					<label class="form-check-label" for="exampleCheck1">Check me out</label>
 					</div>
-          <div class="error-message">{{error-message}}</div>
+          <div class="error-message">{{error_message}}</div>
 					<button type="submit" class="btn btn-primary">登录</button>
 				</form>
 			</div>
@@ -27,6 +27,8 @@
 import ContentBase from '../components/ContentBase.vue'
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import router from '@/router';
+
 
 export default {
   name: 'LoginView',
@@ -40,14 +42,15 @@ export default {
     let error_message = ref('');
 
     const login = () => {
+      error_message.value = "";
       store.dispatch("login", {
         username: username.value,
         password: password.value,
         success() {
-          console.log("success");
+          router.push({name: 'userlist'});
         },
         error() {
-          console.log("failed");
+          error_message.value = "用户名或密码错误！";
         },
       });
     };
